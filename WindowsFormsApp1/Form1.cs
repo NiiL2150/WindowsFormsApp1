@@ -13,10 +13,13 @@ namespace WindowsFormsApp1
     public partial class Form1 : Form
     {
         Random random = new Random();
+        Timer timer = new Timer();
+        bool isClick = false;
         public Form1()
         {
             InitializeComponent();
-            
+            timer.Interval = 500;
+            timer.Tick += YesClick;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -34,9 +37,23 @@ namespace WindowsFormsApp1
             NoButton.Location = new Point(random.Next(0, 400), random.Next(0, 250));
         }
 
+        void YesClick(object sender, EventArgs e)
+        {
+            isClick = false;
+        }
+
         private void YesButton_MouseClick(object sender, MouseEventArgs e)
         {
-            SalaryText.Text = "How else!";
+            if (isClick)
+            {
+                SalaryText.Text = "How else!";
+            }
+
+            else
+            {
+                timer.Start();
+                isClick = true;
+            }
         }
     }
 }
