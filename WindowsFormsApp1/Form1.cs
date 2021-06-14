@@ -32,6 +32,7 @@ namespace WindowsFormsApp1
         private void button2_Click(object sender, EventArgs e)
         {
             listBox1.Items.Add(textBox1.Text);
+            UpdateInfo();
         }
 
         private void listBox1_MouseClick(object sender, MouseEventArgs e)
