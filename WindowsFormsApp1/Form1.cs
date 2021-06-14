@@ -12,14 +12,16 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        Random random = new Random();
-        Timer timer = new Timer();
-        bool isClick = false;
+        void UpdateInfo()
+        {
+            int x = listBox2.Items.Count * 100 / (listBox1.Items.Count + listBox2.Items.Count);
+            progressBar1.Value = x;
+            label1.Text = $"{x}%";
+        }
         public Form1()
         {
             InitializeComponent();
-            timer.Interval = 500;
-            timer.Tick += YesClick;
+            toolTip1.SetToolTip(listBox1, "Item list");
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -27,33 +29,35 @@ namespace WindowsFormsApp1
 
         }
 
-        private void NoButton_MouseHover(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            NoButton.Location = new Point(random.Next(0, 400), random.Next(0, 250));
+            listBox1.Items.Add(textBox1.Text);
         }
 
-        private void NoButton_MouseClick(object sender, MouseEventArgs e)
+        private void listBox1_MouseClick(object sender, MouseEventArgs e)
         {
-            NoButton.Location = new Point(random.Next(0, 400), random.Next(0, 250));
-        }
-
-        void YesClick(object sender, EventArgs e)
-        {
-            isClick = false;
-        }
-
-        private void YesButton_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (isClick)
+            if (listBox1.Items.Count > 0)
             {
-                SalaryText.Text = "How else!";
+                if (listBox1.SelectedItems.Count > 0)
+                {
+                    listBox2.Items.Add(listBox1.SelectedItem);
+                    listBox1.Items.RemoveAt(listBox1.SelectedIndex);
+                }
             }
+            UpdateInfo();
+        }
 
-            else
+        private void listBox2_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (listBox2.Items.Count > 0)
             {
-                timer.Start();
-                isClick = true;
+                if (listBox2.SelectedItems.Count > 0)
+                {
+                    listBox1.Items.Add(listBox2.SelectedItem);
+                    listBox2.Items.RemoveAt(listBox2.SelectedIndex);
+                }
             }
+            UpdateInfo();
         }
     }
 }

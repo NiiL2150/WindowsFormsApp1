@@ -29,51 +29,84 @@ namespace WindowsFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
-            this.YesButton = new System.Windows.Forms.Button();
-            this.NoButton = new System.Windows.Forms.Button();
-            this.SalaryText = new System.Windows.Forms.Label();
+            this.components = new System.ComponentModel.Container();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // YesButton
+            // listBox1
             // 
-            this.YesButton.Location = new System.Drawing.Point(95, 161);
-            this.YesButton.Name = "YesButton";
-            this.YesButton.Size = new System.Drawing.Size(75, 23);
-            this.YesButton.TabIndex = 0;
-            this.YesButton.Text = "Yes";
-            this.YesButton.UseVisualStyleBackColor = true;
-            this.YesButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.YesButton_MouseClick);
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Items.AddRange(new object[] {
+            "PlaceHolder"});
+            this.listBox1.Location = new System.Drawing.Point(12, 12);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(120, 95);
+            this.listBox1.TabIndex = 0;
+            this.listBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseClick);
             // 
-            // NoButton
+            // listBox2
             // 
-            this.NoButton.Location = new System.Drawing.Point(336, 161);
-            this.NoButton.Name = "NoButton";
-            this.NoButton.Size = new System.Drawing.Size(75, 23);
-            this.NoButton.TabIndex = 1;
-            this.NoButton.Text = "No";
-            this.NoButton.UseVisualStyleBackColor = true;
-            this.NoButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NoButton_MouseClick);
-            this.NoButton.MouseHover += new System.EventHandler(this.NoButton_MouseHover);
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.Location = new System.Drawing.Point(143, 12);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(120, 95);
+            this.listBox2.TabIndex = 1;
+            this.listBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox2_MouseClick);
             // 
-            // SalaryText
+            // textBox1
             // 
-            this.SalaryText.AutoSize = true;
-            this.SalaryText.Location = new System.Drawing.Point(189, 66);
-            this.SalaryText.Name = "SalaryText";
-            this.SalaryText.Size = new System.Drawing.Size(119, 13);
-            this.SalaryText.TabIndex = 2;
-            this.SalaryText.Text = "Do you like your salary?";
-            this.SalaryText.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.textBox1.Location = new System.Drawing.Point(12, 114);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(120, 20);
+            this.textBox1.TabIndex = 3;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(12, 140);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(120, 23);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Add";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(143, 114);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(120, 26);
+            this.progressBar1.Step = 1;
+            this.progressBar1.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(138, 143);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 25);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "0%";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(494, 237);
-            this.Controls.Add(this.SalaryText);
-            this.Controls.Add(this.NoButton);
-            this.Controls.Add(this.YesButton);
+            this.ClientSize = new System.Drawing.Size(284, 171);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.listBox2);
+            this.Controls.Add(this.listBox1);
             this.Name = "Form1";
+            this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -82,9 +115,13 @@ namespace WindowsFormsApp1
 
         #endregion
 
-        private System.Windows.Forms.Button YesButton;
-        private System.Windows.Forms.Button NoButton;
-        private System.Windows.Forms.Label SalaryText;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label label1;
     }
 }
 
