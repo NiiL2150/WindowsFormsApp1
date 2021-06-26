@@ -117,53 +117,130 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="toolStripDropDownButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
-        YKxG6WBogkMZKgPNCEVJFBGdGETEvgwyO9DJE5syZw3PIlPEE9pgBCLZ5XvdMB8Ew8gXbl54nuf63dd9
-        0OGSnwCahxbPRNPAPMw9Xpg6ZmF46kZZ0xSKzJPIrhpDWsVnpBhGkKx3nAX8Pv7z1zg8OoY/cITdn4fw
-        bf/C0kYAN3Ma/w3gWfZL5kzTKBxjWyK2DftwI9tyMYCZKXbNHaD91bLYJrDXsYbrWfUKwJrPE9M2M1Oc
-        VzOOpHI7Jr376Hi9ogHqFIANO0/MmmmbmSmm9a8ze+I4MrNWAdjtoJgWcx+PSzg166yZZ8xM8XvXDix9
-        c4jIqFYAjoriBV9AhEPv1mH/sonogha0afbZMMZz+yreTGyhpusHwtNNCsA5U1zS4BLxzJIfg299qO32
-        Ir7UJtZfftyATqeT+8o2D8JSjQrAJblrncYL7ZJ2+bfaFnC/1S1NjL3diRat7qrO7wLRP3HjWsojBeCo
-        mDEo5mNjuweFGvjWg2EBhCbpkW78htSHHwRyNdmgAFzPEee2iFkzayy2OLXzT4gr6UdUnlXrullsxxQ+
-        kx0g8BTA3aZlButjSTyjODq/WcQcW/B/Je4OQhLvKQDnzN1mp0nnkvAhR8VuMzNrpm1mpjgkoVwB/v8D
-        TgDQASA1MVpwzwAAAABJRU5ErkJggg==
-</value>
+  <data name="AmountEN" xml:space="preserve">
+    <value>Amount</value>
   </data>
-  <data name="toolStripDropDownButton2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
-        YKxG6WBogkMZKgPNCEVJFBGdGETEvgwyO9DJE5syZw3PIlPEE9pgBCLZ5XvdMB8Ew8gXbl54nuf63dd9
-        0OGSnwCahxbPRNPAPMw9Xpg6ZmF46kZZ0xSKzJPIrhpDWsVnpBhGkKx3nAX8Pv7z1zg8OoY/cITdn4fw
-        bf/C0kYAN3Ma/w3gWfZL5kzTKBxjWyK2DftwI9tyMYCZKXbNHaD91bLYJrDXsYbrWfUKwJrPE9M2M1Oc
-        VzOOpHI7Jr376Hi9ogHqFIANO0/MmmmbmSmm9a8ze+I4MrNWAdjtoJgWcx+PSzg166yZZ8xM8XvXDix9
-        c4jIqFYAjoriBV9AhEPv1mH/sonogha0afbZMMZz+yreTGyhpusHwtNNCsA5U1zS4BLxzJIfg299qO32
-        Ir7UJtZfftyATqeT+8o2D8JSjQrAJblrncYL7ZJ2+bfaFnC/1S1NjL3diRat7qrO7wLRP3HjWsojBeCo
-        mDEo5mNjuweFGvjWg2EBhCbpkW78htSHHwRyNdmgAFzPEee2iFkzayy2OLXzT4gr6UdUnlXrullsxxQ+
-        kx0g8BTA3aZlButjSTyjODq/WcQcW/B/Je4OQhLvKQDnzN1mp0nnkvAhR8VuMzNrpm1mpjgkoVwB/v8D
-        TgDQASA1MVpwzwAAAABJRU5ErkJggg==
-</value>
+  <data name="AmountRU" xml:space="preserve">
+    <value>Кол-во</value>
   </data>
-  <data name="toolStripDropDownButton3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
-        YKxG6WBogkMZKgPNCEVJFBGdGETEvgwyO9DJE5syZw3PIlPEE9pgBCLZ5XvdMB8Ew8gXbl54nuf63dd9
-        0OGSnwCahxbPRNPAPMw9Xpg6ZmF46kZZ0xSKzJPIrhpDWsVnpBhGkKx3nAX8Pv7z1zg8OoY/cITdn4fw
-        bf/C0kYAN3Ma/w3gWfZL5kzTKBxjWyK2DftwI9tyMYCZKXbNHaD91bLYJrDXsYbrWfUKwJrPE9M2M1Oc
-        VzOOpHI7Jr376Hi9ogHqFIANO0/MmmmbmSmm9a8ze+I4MrNWAdjtoJgWcx+PSzg166yZZ8xM8XvXDix9
-        c4jIqFYAjoriBV9AhEPv1mH/sonogha0afbZMMZz+yreTGyhpusHwtNNCsA5U1zS4BLxzJIfg299qO32
-        Ir7UJtZfftyATqeT+8o2D8JSjQrAJblrncYL7ZJ2+bfaFnC/1S1NjL3diRat7qrO7wLRP3HjWsojBeCo
-        mDEo5mNjuweFGvjWg2EBhCbpkW78htSHHwRyNdmgAFzPEee2iFkzayy2OLXzT4gr6UdUnlXrullsxxQ+
-        kx0g8BTA3aZlButjSTyjODq/WcQcW/B/Je4OQhLvKQDnzN1mp0nnkvAhR8VuMzNrpm1mpjgkoVwB/v8D
-        TgDQASA1MVpwzwAAAABJRU5ErkJggg==
-</value>
+  <data name="BackgroundSettingsEN" xml:space="preserve">
+    <value>Background settings</value>
+  </data>
+  <data name="BackgroundSettingsRU" xml:space="preserve">
+    <value>Настройки заднего фона</value>
+  </data>
+  <data name="CalculateEN" xml:space="preserve">
+    <value>Calculate</value>
+  </data>
+  <data name="CalculateRU" xml:space="preserve">
+    <value>Вычислить</value>
+  </data>
+  <data name="ChangeColorEN" xml:space="preserve">
+    <value>Change the background color</value>
+  </data>
+  <data name="ChangeColorRU" xml:space="preserve">
+    <value>Поменять цвет заднего фона</value>
+  </data>
+  <data name="CocaColaEN" xml:space="preserve">
+    <value>Coca-Cola</value>
+  </data>
+  <data name="CocaColaRU" xml:space="preserve">
+    <value>Кола</value>
+  </data>
+  <data name="DayOfTheWeekEN" xml:space="preserve">
+    <value>Day of the week</value>
+  </data>
+  <data name="DayOfTheWeekRU" xml:space="preserve">
+    <value>День недели</value>
+  </data>
+  <data name="FrenchFriesEN" xml:space="preserve">
+    <value>French fries</value>
+  </data>
+  <data name="FrenchFriesRU" xml:space="preserve">
+    <value>Картофель-фри</value>
+  </data>
+  <data name="GasEN" xml:space="preserve">
+    <value>Gas</value>
+  </data>
+  <data name="GasRU" xml:space="preserve">
+    <value>Топливо</value>
+  </data>
+  <data name="HamburgerEN" xml:space="preserve">
+    <value>Hamburger</value>
+  </data>
+  <data name="HamburgerRU" xml:space="preserve">
+    <value>Бургер</value>
+  </data>
+  <data name="HotDogEN" xml:space="preserve">
+    <value>Hot-dog</value>
+  </data>
+  <data name="HotDogRU" xml:space="preserve">
+    <value>Хот-дог</value>
+  </data>
+  <data name="LanguageSettingsEN" xml:space="preserve">
+    <value>Language settings</value>
+  </data>
+  <data name="LanguageSettingsRU" xml:space="preserve">
+    <value>Языковые настройки</value>
+  </data>
+  <data name="MiniCafeEN" xml:space="preserve">
+    <value>Mini-cafe</value>
+  </data>
+  <data name="MiniCafeRU" xml:space="preserve">
+    <value>Мини-кафе</value>
+  </data>
+  <data name="MoneyEN" xml:space="preserve">
+    <value>Money</value>
+  </data>
+  <data name="MoneyRU" xml:space="preserve">
+    <value>Сумма</value>
+  </data>
+  <data name="OilTypeEN" xml:space="preserve">
+    <value>Oil type</value>
+  </data>
+  <data name="OilTypeRU" xml:space="preserve">
+    <value>Тип топлива</value>
+  </data>
+  <data name="PriceEN" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="PriceRU" xml:space="preserve">
+    <value>Стоимость</value>
+  </data>
+  <data name="Switch1EN" xml:space="preserve">
+    <value>Switch</value>
+  </data>
+  <data name="Switch1RU" xml:space="preserve">
+    <value>Переключение</value>
+  </data>
+  <data name="Switch2EN" xml:space="preserve">
+    <value>Switch to the next customer?</value>
+  </data>
+  <data name="Switch2RU" xml:space="preserve">
+    <value>Переключиться на следующего покупателя?</value>
+  </data>
+  <data name="ToPayEN" xml:space="preserve">
+    <value>To pay</value>
+  </data>
+  <data name="ToPayRU" xml:space="preserve">
+    <value>К оплате</value>
+  </data>
+  <data name="ToPayTotalEN" xml:space="preserve">
+    <value>Total to pay</value>
+  </data>
+  <data name="ToPayTotalRU" xml:space="preserve">
+    <value>Всего к оплате</value>
+  </data>
+  <data name="TotalDailyIncomeEN" xml:space="preserve">
+    <value>Total daily income</value>
+  </data>
+  <data name="TotalDailyIncomeRU" xml:space="preserve">
+    <value>Общий доход за день</value>
+  </data>
+  <data name="TotalDayEN" xml:space="preserve">
+    <value>Total today</value>
+  </data>
+  <data name="TotalDayRU" xml:space="preserve">
+    <value>Всего за день</value>
   </data>
 </root>

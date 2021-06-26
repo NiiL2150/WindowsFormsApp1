@@ -29,6 +29,7 @@ namespace WindowsFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.gasBox = new System.Windows.Forms.GroupBox();
             this.labelCurrency1 = new System.Windows.Forms.Label();
             this.textBoxOilPrice = new System.Windows.Forms.TextBox();
@@ -64,18 +65,39 @@ namespace WindowsFormsApp1
             this.checkBoxHamburger = new System.Windows.Forms.CheckBox();
             this.checkBoxHotDog = new System.Windows.Forms.CheckBox();
             this.groupBoxTotal3 = new System.Windows.Forms.GroupBox();
+            this.labelTotalTotal = new System.Windows.Forms.Label();
+            this.labelPrice4 = new System.Windows.Forms.Label();
+            this.labelCurrency6 = new System.Windows.Forms.Label();
             this.labelPrice3 = new System.Windows.Forms.Label();
             this.labelCurrency5 = new System.Windows.Forms.Label();
             this.buttonTotal = new System.Windows.Forms.Button();
-            this.labelPrice4 = new System.Windows.Forms.Label();
-            this.labelCurrency6 = new System.Windows.Forms.Label();
-            this.labelTotalTotal = new System.Windows.Forms.Label();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabelDateTime = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.mondayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.enToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ruToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.trackBarB = new System.Windows.Forms.TrackBar();
+            this.trackBarG = new System.Windows.Forms.TrackBar();
+            this.trackBarR = new System.Windows.Forms.TrackBar();
+            this.labelB = new System.Windows.Forms.Label();
+            this.labelG = new System.Windows.Forms.Label();
+            this.labelR = new System.Windows.Forms.Label();
+            this.labelChangeColor = new System.Windows.Forms.Label();
             this.gasBox.SuspendLayout();
             this.groupBoxTotal1.SuspendLayout();
             this.groupBoxGasAddition.SuspendLayout();
             this.groupBoxCafe.SuspendLayout();
             this.groupBoxTotal2.SuspendLayout();
             this.groupBoxTotal3.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarR)).BeginInit();
             this.SuspendLayout();
             // 
             // gasBox
@@ -93,7 +115,7 @@ namespace WindowsFormsApp1
             this.gasBox.Controls.Add(this.labelOilType);
             this.gasBox.Location = new System.Drawing.Point(13, 13);
             this.gasBox.Name = "gasBox";
-            this.gasBox.Size = new System.Drawing.Size(198, 209);
+            this.gasBox.Size = new System.Drawing.Size(221, 209);
             this.gasBox.TabIndex = 0;
             this.gasBox.TabStop = false;
             this.gasBox.Text = "Топливо";
@@ -153,9 +175,9 @@ namespace WindowsFormsApp1
             this.labelGasVolume.AutoSize = true;
             this.labelGasVolume.Location = new System.Drawing.Point(163, 88);
             this.labelGasVolume.Name = "labelGasVolume";
-            this.labelGasVolume.Size = new System.Drawing.Size(16, 13);
+            this.labelGasVolume.Size = new System.Drawing.Size(12, 13);
             this.labelGasVolume.TabIndex = 8;
-            this.labelGasVolume.Text = "л.";
+            this.labelGasVolume.Text = "l.";
             // 
             // labelCurrency2
             // 
@@ -174,7 +196,7 @@ namespace WindowsFormsApp1
             this.textBoxGasMoney.Size = new System.Drawing.Size(78, 20);
             this.textBoxGasMoney.TabIndex = 6;
             this.textBoxGasMoney.Text = "0";
-            this.textBoxGasMoney.TextChanged += new System.EventHandler(this.textBoxGasMoney_TextChanged);
+            this.textBoxGasMoney.TextChanged += new System.EventHandler(this.OilChanged);
             // 
             // textBoxGasAmount
             // 
@@ -183,7 +205,7 @@ namespace WindowsFormsApp1
             this.textBoxGasAmount.Size = new System.Drawing.Size(78, 20);
             this.textBoxGasAmount.TabIndex = 5;
             this.textBoxGasAmount.Text = "0";
-            this.textBoxGasAmount.TextChanged += new System.EventHandler(this.textBoxGasAmount_TextChanged);
+            this.textBoxGasAmount.TextChanged += new System.EventHandler(this.OilChanged);
             // 
             // groupBoxGasAddition
             // 
@@ -216,7 +238,7 @@ namespace WindowsFormsApp1
             this.radioButtonGasAmount.TabStop = true;
             this.radioButtonGasAmount.Text = "Кол-во";
             this.radioButtonGasAmount.UseVisualStyleBackColor = true;
-            this.radioButtonGasAmount.CheckedChanged += new System.EventHandler(this.radioButtonGasAmount_CheckedChanged);
+            this.radioButtonGasAmount.CheckedChanged += new System.EventHandler(this.OilChanged);
             // 
             // labelOilPrice
             // 
@@ -234,12 +256,12 @@ namespace WindowsFormsApp1
             this.comboBoxOilType.Name = "comboBoxOilType";
             this.comboBoxOilType.Size = new System.Drawing.Size(121, 21);
             this.comboBoxOilType.TabIndex = 1;
-            this.comboBoxOilType.SelectedIndexChanged += new System.EventHandler(this.comboBoxOilType_SelectedIndexChanged);
+            this.comboBoxOilType.SelectedIndexChanged += new System.EventHandler(this.OilChanged);
             // 
             // labelOilType
             // 
             this.labelOilType.AutoSize = true;
-            this.labelOilType.Location = new System.Drawing.Point(3, 20);
+            this.labelOilType.Location = new System.Drawing.Point(1, 20);
             this.labelOilType.Name = "labelOilType";
             this.labelOilType.Size = new System.Drawing.Size(70, 13);
             this.labelOilType.TabIndex = 0;
@@ -262,7 +284,7 @@ namespace WindowsFormsApp1
             this.groupBoxCafe.Controls.Add(this.checkBoxFrenchFries);
             this.groupBoxCafe.Controls.Add(this.checkBoxHamburger);
             this.groupBoxCafe.Controls.Add(this.checkBoxHotDog);
-            this.groupBoxCafe.Location = new System.Drawing.Point(217, 12);
+            this.groupBoxCafe.Location = new System.Drawing.Point(240, 13);
             this.groupBoxCafe.Name = "groupBoxCafe";
             this.groupBoxCafe.Size = new System.Drawing.Size(232, 210);
             this.groupBoxCafe.TabIndex = 1;
@@ -310,7 +332,7 @@ namespace WindowsFormsApp1
             this.textBoxCocaColaAmount.Size = new System.Drawing.Size(47, 20);
             this.textBoxCocaColaAmount.TabIndex = 13;
             this.textBoxCocaColaAmount.Text = "0";
-            this.textBoxCocaColaAmount.TextChanged += new System.EventHandler(this.textBoxCocaColaAmount_TextChanged);
+            this.textBoxCocaColaAmount.TextChanged += new System.EventHandler(this.CafeChanged);
             // 
             // textBoxCocaColaPrice
             // 
@@ -328,7 +350,7 @@ namespace WindowsFormsApp1
             this.textBoxFrenchFriesAmount.Size = new System.Drawing.Size(47, 20);
             this.textBoxFrenchFriesAmount.TabIndex = 11;
             this.textBoxFrenchFriesAmount.Text = "0";
-            this.textBoxFrenchFriesAmount.TextChanged += new System.EventHandler(this.textBoxFrenchFriesAmount_TextChanged);
+            this.textBoxFrenchFriesAmount.TextChanged += new System.EventHandler(this.CafeChanged);
             // 
             // textBoxFrenchFriesPrice
             // 
@@ -346,7 +368,7 @@ namespace WindowsFormsApp1
             this.textBoxHamburgerAmount.Size = new System.Drawing.Size(47, 20);
             this.textBoxHamburgerAmount.TabIndex = 9;
             this.textBoxHamburgerAmount.Text = "0";
-            this.textBoxHamburgerAmount.TextChanged += new System.EventHandler(this.textBoxHamburgerAmount_TextChanged);
+            this.textBoxHamburgerAmount.TextChanged += new System.EventHandler(this.CafeChanged);
             // 
             // textBoxHamburgerPrice
             // 
@@ -364,7 +386,7 @@ namespace WindowsFormsApp1
             this.textBoxHotDogAmount.Size = new System.Drawing.Size(47, 20);
             this.textBoxHotDogAmount.TabIndex = 7;
             this.textBoxHotDogAmount.Text = "0";
-            this.textBoxHotDogAmount.TextChanged += new System.EventHandler(this.textBoxHotDogAmount_TextChanged);
+            this.textBoxHotDogAmount.TextChanged += new System.EventHandler(this.CafeChanged);
             // 
             // textBoxHotDogPrice
             // 
@@ -386,7 +408,7 @@ namespace WindowsFormsApp1
             // labelPrice
             // 
             this.labelPrice.AutoSize = true;
-            this.labelPrice.Location = new System.Drawing.Point(103, 16);
+            this.labelPrice.Location = new System.Drawing.Point(108, 16);
             this.labelPrice.Name = "labelPrice";
             this.labelPrice.Size = new System.Drawing.Size(62, 13);
             this.labelPrice.TabIndex = 4;
@@ -401,7 +423,7 @@ namespace WindowsFormsApp1
             this.checkBoxCocaCola.TabIndex = 3;
             this.checkBoxCocaCola.Text = "Кола";
             this.checkBoxCocaCola.UseVisualStyleBackColor = true;
-            this.checkBoxCocaCola.CheckedChanged += new System.EventHandler(this.checkBoxCocaCola_CheckedChanged);
+            this.checkBoxCocaCola.CheckedChanged += new System.EventHandler(this.CafeChanged);
             // 
             // checkBoxFrenchFries
             // 
@@ -412,7 +434,7 @@ namespace WindowsFormsApp1
             this.checkBoxFrenchFries.TabIndex = 2;
             this.checkBoxFrenchFries.Text = "Картофель фри";
             this.checkBoxFrenchFries.UseVisualStyleBackColor = true;
-            this.checkBoxFrenchFries.CheckedChanged += new System.EventHandler(this.checkBoxFrenchFries_CheckedChanged);
+            this.checkBoxFrenchFries.CheckedChanged += new System.EventHandler(this.CafeChanged);
             // 
             // checkBoxHamburger
             // 
@@ -423,7 +445,7 @@ namespace WindowsFormsApp1
             this.checkBoxHamburger.TabIndex = 1;
             this.checkBoxHamburger.Text = "Бургер";
             this.checkBoxHamburger.UseVisualStyleBackColor = true;
-            this.checkBoxHamburger.CheckedChanged += new System.EventHandler(this.checkBoxHamburger_CheckedChanged);
+            this.checkBoxHamburger.CheckedChanged += new System.EventHandler(this.CafeChanged);
             // 
             // checkBoxHotDog
             // 
@@ -434,7 +456,7 @@ namespace WindowsFormsApp1
             this.checkBoxHotDog.TabIndex = 0;
             this.checkBoxHotDog.Text = "Хот-дог";
             this.checkBoxHotDog.UseVisualStyleBackColor = true;
-            this.checkBoxHotDog.CheckedChanged += new System.EventHandler(this.checkBoxHotDog_CheckedChanged);
+            this.checkBoxHotDog.CheckedChanged += new System.EventHandler(this.CafeChanged);
             // 
             // groupBoxTotal3
             // 
@@ -447,10 +469,41 @@ namespace WindowsFormsApp1
             this.groupBoxTotal3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBoxTotal3.Location = new System.Drawing.Point(13, 228);
             this.groupBoxTotal3.Name = "groupBoxTotal3";
-            this.groupBoxTotal3.Size = new System.Drawing.Size(436, 89);
+            this.groupBoxTotal3.Size = new System.Drawing.Size(459, 89);
             this.groupBoxTotal3.TabIndex = 2;
             this.groupBoxTotal3.TabStop = false;
             this.groupBoxTotal3.Text = "Всего к оплате";
+            // 
+            // labelTotalTotal
+            // 
+            this.labelTotalTotal.AutoSize = true;
+            this.labelTotalTotal.Location = new System.Drawing.Point(334, 19);
+            this.labelTotalTotal.Name = "labelTotalTotal";
+            this.labelTotalTotal.Size = new System.Drawing.Size(79, 13);
+            this.labelTotalTotal.TabIndex = 8;
+            this.labelTotalTotal.Text = "Всего за день";
+            // 
+            // labelPrice4
+            // 
+            this.labelPrice4.AutoSize = true;
+            this.labelPrice4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelPrice4.Location = new System.Drawing.Point(334, 41);
+            this.labelPrice4.Name = "labelPrice4";
+            this.labelPrice4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.labelPrice4.Size = new System.Drawing.Size(67, 31);
+            this.labelPrice4.TabIndex = 7;
+            this.labelPrice4.Text = "0,00";
+            // 
+            // labelCurrency6
+            // 
+            this.labelCurrency6.AutoSize = true;
+            this.labelCurrency6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelCurrency6.Location = new System.Drawing.Point(406, 63);
+            this.labelCurrency6.Name = "labelCurrency6";
+            this.labelCurrency6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.labelCurrency6.Size = new System.Drawing.Size(18, 20);
+            this.labelCurrency6.TabIndex = 6;
+            this.labelCurrency6.Text = "$";
             // 
             // labelPrice3
             // 
@@ -485,45 +538,185 @@ namespace WindowsFormsApp1
             this.buttonTotal.UseVisualStyleBackColor = true;
             this.buttonTotal.Click += new System.EventHandler(this.buttonTotal_Click);
             // 
-            // labelPrice4
+            // statusStrip1
             // 
-            this.labelPrice4.AutoSize = true;
-            this.labelPrice4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelPrice4.Location = new System.Drawing.Point(334, 41);
-            this.labelPrice4.Name = "labelPrice4";
-            this.labelPrice4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.labelPrice4.Size = new System.Drawing.Size(67, 31);
-            this.labelPrice4.TabIndex = 7;
-            this.labelPrice4.Text = "0,00";
+            this.statusStrip1.BackColor = System.Drawing.Color.White;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabelDateTime,
+            this.toolStripDropDownButton1,
+            this.toolStripDropDownButton2,
+            this.toolStripDropDownButton3});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 321);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(484, 22);
+            this.statusStrip1.TabIndex = 3;
+            this.statusStrip1.Text = "statusStrip1";
             // 
-            // labelCurrency6
+            // toolStripStatusLabelDateTime
             // 
-            this.labelCurrency6.AutoSize = true;
-            this.labelCurrency6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelCurrency6.Location = new System.Drawing.Point(406, 63);
-            this.labelCurrency6.Name = "labelCurrency6";
-            this.labelCurrency6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.labelCurrency6.Size = new System.Drawing.Size(18, 20);
-            this.labelCurrency6.TabIndex = 6;
-            this.labelCurrency6.Text = "$";
+            this.toolStripStatusLabelDateTime.Name = "toolStripStatusLabelDateTime";
+            this.toolStripStatusLabelDateTime.Size = new System.Drawing.Size(0, 17);
             // 
-            // labelTotalTotal
+            // toolStripDropDownButton1
             // 
-            this.labelTotalTotal.AutoSize = true;
-            this.labelTotalTotal.Location = new System.Drawing.Point(334, 19);
-            this.labelTotalTotal.Name = "labelTotalTotal";
-            this.labelTotalTotal.Size = new System.Drawing.Size(82, 13);
-            this.labelTotalTotal.TabIndex = 8;
-            this.labelTotalTotal.Text = "Всего за день:";
+            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mondayToolStripMenuItem});
+            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.ShowDropDownArrow = false;
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(80, 20);
+            this.toolStripDropDownButton1.Text = "День недели";
+            this.toolStripDropDownButton1.ToolTipText = "День недели";
+            // 
+            // mondayToolStripMenuItem
+            // 
+            this.mondayToolStripMenuItem.Name = "mondayToolStripMenuItem";
+            this.mondayToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.mondayToolStripMenuItem.Text = "Monday";
+            // 
+            // toolStripDropDownButton2
+            // 
+            this.toolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
+            this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
+            this.toolStripDropDownButton2.ShowDropDownArrow = false;
+            this.toolStripDropDownButton2.Size = new System.Drawing.Size(148, 20);
+            this.toolStripDropDownButton2.Text = "Настройки заднего фона";
+            this.toolStripDropDownButton2.Click += new System.EventHandler(this.toolStripDropDownButton2_Click);
+            // 
+            // toolStripDropDownButton3
+            // 
+            this.toolStripDropDownButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripDropDownButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.enToolStripMenuItem,
+            this.ruToolStripMenuItem});
+            this.toolStripDropDownButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton3.Image")));
+            this.toolStripDropDownButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton3.Name = "toolStripDropDownButton3";
+            this.toolStripDropDownButton3.Size = new System.Drawing.Size(136, 20);
+            this.toolStripDropDownButton3.Text = "Языковые настройки";
+            // 
+            // enToolStripMenuItem
+            // 
+            this.enToolStripMenuItem.Name = "enToolStripMenuItem";
+            this.enToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.enToolStripMenuItem.Text = "EN";
+            this.enToolStripMenuItem.Click += new System.EventHandler(this.languageToolStripMenuItem_Click);
+            // 
+            // ruToolStripMenuItem
+            // 
+            this.ruToolStripMenuItem.Name = "ruToolStripMenuItem";
+            this.ruToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ruToolStripMenuItem.Text = "RU";
+            this.ruToolStripMenuItem.Click += new System.EventHandler(this.languageToolStripMenuItem_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.trackBarB);
+            this.panel1.Controls.Add(this.trackBarG);
+            this.panel1.Controls.Add(this.trackBarR);
+            this.panel1.Controls.Add(this.labelB);
+            this.panel1.Controls.Add(this.labelG);
+            this.panel1.Controls.Add(this.labelR);
+            this.panel1.Controls.Add(this.labelChangeColor);
+            this.panel1.Enabled = false;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(484, 323);
+            this.panel1.TabIndex = 2;
+            this.panel1.Visible = false;
+            // 
+            // trackBarB
+            // 
+            this.trackBarB.LargeChange = 32;
+            this.trackBarB.Location = new System.Drawing.Point(67, 265);
+            this.trackBarB.Maximum = 255;
+            this.trackBarB.Name = "trackBarB";
+            this.trackBarB.Size = new System.Drawing.Size(366, 45);
+            this.trackBarB.SmallChange = 8;
+            this.trackBarB.TabIndex = 6;
+            this.trackBarB.Value = 255;
+            this.trackBarB.Scroll += new System.EventHandler(this.trackBarRGB_Scroll);
+            // 
+            // trackBarG
+            // 
+            this.trackBarG.LargeChange = 32;
+            this.trackBarG.Location = new System.Drawing.Point(67, 187);
+            this.trackBarG.Maximum = 255;
+            this.trackBarG.Name = "trackBarG";
+            this.trackBarG.Size = new System.Drawing.Size(366, 45);
+            this.trackBarG.SmallChange = 8;
+            this.trackBarG.TabIndex = 5;
+            this.trackBarG.Value = 255;
+            this.trackBarG.Scroll += new System.EventHandler(this.trackBarRGB_Scroll);
+            // 
+            // trackBarR
+            // 
+            this.trackBarR.LargeChange = 32;
+            this.trackBarR.Location = new System.Drawing.Point(67, 101);
+            this.trackBarR.Maximum = 255;
+            this.trackBarR.Name = "trackBarR";
+            this.trackBarR.Size = new System.Drawing.Size(366, 45);
+            this.trackBarR.SmallChange = 8;
+            this.trackBarR.TabIndex = 4;
+            this.trackBarR.Value = 255;
+            this.trackBarR.Scroll += new System.EventHandler(this.trackBarRGB_Scroll);
+            // 
+            // labelB
+            // 
+            this.labelB.AutoSize = true;
+            this.labelB.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelB.Location = new System.Drawing.Point(26, 265);
+            this.labelB.Name = "labelB";
+            this.labelB.Size = new System.Drawing.Size(28, 26);
+            this.labelB.TabIndex = 3;
+            this.labelB.Text = "B";
+            // 
+            // labelG
+            // 
+            this.labelG.AutoSize = true;
+            this.labelG.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelG.Location = new System.Drawing.Point(25, 187);
+            this.labelG.Name = "labelG";
+            this.labelG.Size = new System.Drawing.Size(30, 26);
+            this.labelG.TabIndex = 2;
+            this.labelG.Text = "G";
+            // 
+            // labelR
+            // 
+            this.labelR.AutoSize = true;
+            this.labelR.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelR.Location = new System.Drawing.Point(26, 101);
+            this.labelR.Name = "labelR";
+            this.labelR.Size = new System.Drawing.Size(29, 26);
+            this.labelR.TabIndex = 1;
+            this.labelR.Text = "R";
+            // 
+            // labelChangeColor
+            // 
+            this.labelChangeColor.AutoSize = true;
+            this.labelChangeColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 23F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelChangeColor.Location = new System.Drawing.Point(3, 26);
+            this.labelChangeColor.Name = "labelChangeColor";
+            this.labelChangeColor.Size = new System.Drawing.Size(463, 35);
+            this.labelChangeColor.TabIndex = 0;
+            this.labelChangeColor.Text = "Поменять цвет заднего фона";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(461, 326);
-            this.Controls.Add(this.groupBoxTotal3);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(484, 343);
             this.Controls.Add(this.groupBoxCafe);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.groupBoxTotal3);
             this.Controls.Add(this.gasBox);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.Text = "BestOil";
@@ -541,7 +734,15 @@ namespace WindowsFormsApp1
             this.groupBoxTotal2.PerformLayout();
             this.groupBoxTotal3.ResumeLayout(false);
             this.groupBoxTotal3.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarR)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -588,6 +789,22 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Label labelPrice4;
         private System.Windows.Forms.Label labelCurrency6;
         private System.Windows.Forms.Label labelTotalTotal;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelDateTime;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripMenuItem mondayToolStripMenuItem;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label labelChangeColor;
+        private System.Windows.Forms.Label labelB;
+        private System.Windows.Forms.Label labelG;
+        private System.Windows.Forms.Label labelR;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton3;
+        private System.Windows.Forms.TrackBar trackBarB;
+        private System.Windows.Forms.TrackBar trackBarG;
+        private System.Windows.Forms.TrackBar trackBarR;
+        private System.Windows.Forms.ToolStripMenuItem enToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ruToolStripMenuItem;
     }
 }
 

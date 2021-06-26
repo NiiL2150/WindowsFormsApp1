@@ -14,7 +14,8 @@ namespace WindowsFormsApp1
     {
         bool formsOpened = true;
         double totalIncome = 0;
-        Timer timer = new Timer();
+        Timer customerTimer = new Timer(), timeTimer = new Timer();
+        string local = "RU";
         Dictionary<string, double> oilTypes = new Dictionary<string, double>()
         {
             {"Дизель", 0.60 },
@@ -33,7 +34,8 @@ namespace WindowsFormsApp1
         public Form1()
         {
             InitializeComponent();
-            timer.Interval = 10000;
+            customerTimer.Interval = 10000;
+            timeTimer.Interval = 100;
             foreach (var item in oilTypes.Keys)
             {
                 comboBoxOilType.Items.Add(item);
@@ -43,18 +45,69 @@ namespace WindowsFormsApp1
             textBoxHamburgerPrice.Text = foodTypes[1].ToString();
             textBoxFrenchFriesPrice.Text = foodTypes[2].ToString();
             textBoxCocaColaPrice.Text = foodTypes[3].ToString();
-            timer.Tick += new EventHandler(NextCustomer);
+            customerTimer.Tick += new EventHandler(NextCustomer);
+            timeTimer.Tick += new EventHandler(UpdateTime);
+            timeTimer.Start();
+            panel1.BringToFront();
+        }
+
+        string GetLocal(string str)
+        {
+            return loc.ResourceManager.GetString(str);
+        }
+
+        void SetLocalization()
+        {
+            //Group boxes
+            groupBoxTotal1.Text = GetLocal("ToPay" + local);
+            groupBoxTotal2.Text = GetLocal("ToPay" + local);
+            groupBoxTotal3.Text = GetLocal("ToPayTotal" + local);
+            groupBoxCafe.Text = GetLocal("MiniCafe" + local);
+            gasBox.Text = GetLocal("Gas" + local);
+
+            //GasBox
+            labelOilType.Text = GetLocal("OilType" + local);
+            labelOilPrice.Text = GetLocal("Price" + local);
+            radioButtonGasAmount.Text = GetLocal("Amount" + local);
+            radioButtonGasMoney.Text = GetLocal("Money" + local);
+
+            //Cafe
+            labelPrice.Text = GetLocal("Price" + local);
+            labelAmount.Text = GetLocal("Amount" + local);
+            checkBoxHotDog.Text = GetLocal("HotDog" + local);
+            checkBoxHamburger.Text = GetLocal("Hamburger" + local);
+            checkBoxFrenchFries.Text = GetLocal("FrenchFries" + local);
+            checkBoxCocaCola.Text = GetLocal("CocaCola" + local);
+
+            //Total
+            buttonTotal.Text = GetLocal("Calculate" + local);
+            labelTotalTotal.Text = GetLocal("TotalDay" + local);
+
+            //Others
+            labelChangeColor.Text = GetLocal("ChangeColor" + local);
+            toolStripDropDownButton1.Text = GetLocal("DayOfTheWeek" + local);
+            toolStripDropDownButton2.Text = GetLocal("BackgroundSettings" + local);
+            toolStripDropDownButton3.Text = GetLocal("LanguageSettings" + local);
+        }
+
+        public void UpdateTime(Object myObject, EventArgs myEventArgs)
+        {
+            toolStripStatusLabelDateTime.Text = $"{DateTime.Now}";
+            mondayToolStripMenuItem.Text = $"{DateTime.Now.DayOfWeek}";
+            this.BackColor = Color.FromArgb(trackBarR.Value, trackBarG.Value, trackBarB.Value);
         }
 
         public void NextCustomer(Object myObject, EventArgs myEventArgs)
         {
-            if (MessageBox.Show("Переключиться на следующего покупателя?", "Переключение", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            customerTimer.Stop();
+            DialogResult result = MessageBox.Show(GetLocal("Switch2" + local), GetLocal("Switch1" + local), MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
             {
                 ResetForm();
             }
-            else
+            else if (result == DialogResult.No)
             {
-                timer.Start();
+                customerTimer.Start();
             }
         }
 
@@ -67,7 +120,7 @@ namespace WindowsFormsApp1
         {
             if (formsOpened == true)
             {
-                MessageBox.Show($"{totalIncome:F2}$", "Total daily income", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"{totalIncome:F2}$", GetLocal("TotalDailyIncome" + local), MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -92,7 +145,7 @@ namespace WindowsFormsApp1
             {
                 textBoxGasAmount.Enabled = false;
                 textBoxGasMoney.Enabled = true;
-                labelCurrency3.Text = "Л";
+                labelCurrency3.Text = "L";
                 try
                 {
                     labelPrice1.Text = (Double.Parse(textBoxGasMoney.Text) / Double.Parse(textBoxOilPrice.Text)).ToString("F2");
@@ -158,62 +211,12 @@ namespace WindowsFormsApp1
             labelPrice2.Text = cafePrice.ToString("F2");
         }
 
-        private void radioButtonGasAmount_CheckedChanged(object sender, EventArgs e)
+        private void OilChanged(object sender, EventArgs e)
         {
             OilUpdate();
         }
 
-        private void comboBoxOilType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            OilUpdate();
-        }
-
-        private void textBoxGasAmount_TextChanged(object sender, EventArgs e)
-        {
-            OilUpdate();
-        }
-
-        private void textBoxGasMoney_TextChanged(object sender, EventArgs e)
-        {
-            OilUpdate();
-        }
-
-        private void checkBoxHotDog_CheckedChanged(object sender, EventArgs e)
-        {
-            CafeUpdate();
-        }
-
-        private void checkBoxHamburger_CheckedChanged(object sender, EventArgs e)
-        {
-            CafeUpdate();
-        }
-
-        private void checkBoxFrenchFries_CheckedChanged(object sender, EventArgs e)
-        {
-            CafeUpdate();
-        }
-
-        private void checkBoxCocaCola_CheckedChanged(object sender, EventArgs e)
-        {
-            CafeUpdate();
-        }
-
-        private void textBoxHotDogAmount_TextChanged(object sender, EventArgs e)
-        {
-            CafeUpdate();
-        }
-
-        private void textBoxHamburgerAmount_TextChanged(object sender, EventArgs e)
-        {
-            CafeUpdate();
-        }
-
-        private void textBoxFrenchFriesAmount_TextChanged(object sender, EventArgs e)
-        {
-            CafeUpdate();
-        }
-
-        private void textBoxCocaColaAmount_TextChanged(object sender, EventArgs e)
+        private void CafeChanged(object sender, EventArgs e)
         {
             CafeUpdate();
         }
@@ -244,7 +247,35 @@ namespace WindowsFormsApp1
             textBoxGasMoney.Enabled = false;
             comboBoxOilType.Enabled = false;
             buttonTotal.Enabled = false;
-            timer.Start();
+            customerTimer.Start();
+        }
+
+        private void toolStripDropDownButton2_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = panel1.Visible ? false : true;
+            panel1.Enabled = panel1.Enabled ? false : true;
+        }
+
+        private void trackBarRGB_Scroll(object sender, EventArgs e)
+        {
+            ActiveForm.BackColor = Color.FromArgb(trackBarR.Value, trackBarG.Value, trackBarB.Value);
+            panel1.BackColor = Color.FromArgb(trackBarR.Value, trackBarG.Value, trackBarB.Value);
+            statusStrip1.BackColor = Color.FromArgb(trackBarR.Value, trackBarG.Value, trackBarB.Value);
+        }
+
+        private void languageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo((sender as ToolStripMenuItem).Text.ToLower());
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo((sender as ToolStripMenuItem).Text.ToLower());
+            System.ComponentModel.ComponentResourceManager resources =
+                new System.ComponentModel.ComponentResourceManager(this.GetType());
+            resources.ApplyResources(this, "$this");
+            foreach (Control c in this.Controls)
+            {
+                resources.ApplyResources(c, c.Name);
+            }
+            local = (sender as ToolStripMenuItem).Text;
+            SetLocalization();
         }
 
         private void ResetForm()
@@ -253,11 +284,19 @@ namespace WindowsFormsApp1
             var form1 = new Form1();
             form1.Closed += (s, args) => this.Close();
             form1.labelPrice4.Text = totalIncome.ToString("F2");
-            timer.Stop();
+            customerTimer.Stop();
             form1.totalIncome = totalIncome;
             form1.formsOpened = true;
             formsOpened = false;
+            form1.panel1.BackColor = panel1.BackColor;
+            form1.statusStrip1.BackColor = statusStrip1.BackColor;
+            form1.trackBarR.Value = trackBarR.Value;
+            form1.trackBarG.Value = trackBarG.Value;
+            form1.trackBarB.Value = trackBarB.Value;
+            form1.local = local;
+            form1.SetLocalization();
             form1.Show();
+            form1.Location = Location;
         }
     }
 }
